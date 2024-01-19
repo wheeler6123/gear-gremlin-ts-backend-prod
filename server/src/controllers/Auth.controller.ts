@@ -1,11 +1,9 @@
 import { Request, Response } from 'express';
-import axios from 'axios';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import qs from 'qs';
 import User from '../models/User.model';
 import RefreshToken from '../models/RefreshToken.model';
-import { secret, jwtExpiration, jwtRefreshExpiration, googleClientId, googleClientSecret, googleCallbackUrl } from '../../config/Auth';
+import { secret, jwtExpiration } from '../../config/Auth';
 import { getGoogleOAuthTokens, getGoogleUser, findAndUpdateUser } from '../services/user.service';
 
 interface GoogleTokensResult {
