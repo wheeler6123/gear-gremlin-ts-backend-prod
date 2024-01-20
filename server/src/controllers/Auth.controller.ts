@@ -25,14 +25,13 @@ const UserController = {
             if (!email || !password) {
                 return res.status(400).json({ message: 'Please enter all fields' });
             }
-            console.log('fields validated');
 
             //check for existing user
             const existingUser = await User.findOne({ email });
             if (existingUser) {
                 return res.status(400).json({ message: 'User already exists' });
             }
-            console.log('user not found');
+
             //validate password
             const isStrongPassword = (password: string): boolean => {
                 // At least 8 characters long
@@ -49,7 +48,7 @@ const UserController = {
 
                 return true;
             };
-            console.log('password validated');
+            
             //hash the password
             let hashedPassword: string;
             if (!isStrongPassword(password)) {
@@ -57,10 +56,10 @@ const UserController = {
             } else {
                 hashedPassword = bcrypt.hashSync(password, 10);
             }
-            console.log('password hashed');
+            
             //create new user
             const newUser = new User({ email, password: hashedPassword });
-            console.log('new user created');
+            
             await newUser.save();
             
             res.status(201).json({ message: 'Registration successful' });
@@ -80,21 +79,21 @@ const UserController = {
             if (!user) {
                 return res.status(400).json({ message: 'User not found' });
             }
-            console.log('user found')
+            
             //check password
             const isMatch = bcrypt.compareSync(password, user.password);
             if (!isMatch) {
                 return res.status(400).json({ message: 'Invalid password' });
             }
-            console.log('creating access token')
+            
             //create access token
             const token = jwt.sign({ id: user._id }, secret!, {
                 expiresIn: jwtExpiration,
             });
-            console.log('creating refresh token')
+            
             //create refresh token
             const refreshToken = await RefreshToken.createToken(user._id);
-            console.log('sending response')
+            
             res.status(200).json({ token, refreshToken, id: user._id });
         } catch (error) {
             console.error('Error during login: ', error);
@@ -175,8 +174,7 @@ const UserController = {
     googleOauthLogin: async (req: Request, res: Response) => {
         //get code client request
         const code = req.query.code as string;
-        console.log("server received code: ", code);
-
+        
         try {
             //get the id and access token with the code
             const { id_token, access_token } = await getGoogleOAuthTokens({code});
@@ -199,17 +197,14 @@ const UserController = {
             if (!user) {
                 return res.status(400).json({ message: 'User not found' });
             }
-            console.log('user found')
             
             //create access token
             const accessToken = jwt.sign({ id: user._id }, secret!, {
                 expiresIn: jwtExpiration,
             });
-            console.log('creating refresh token')
 
             //create refresh token
             const refreshToken = await RefreshToken.createToken(user._id);
-            console.log('sending response')
             res.status(200).json({ accessToken, refreshToken, id: user._id });
 
            
