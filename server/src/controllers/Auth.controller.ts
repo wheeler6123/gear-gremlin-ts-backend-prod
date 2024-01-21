@@ -6,14 +6,6 @@ import RefreshToken from '../models/RefreshToken.model';
 import { secret, jwtExpiration } from '../../config/Auth';
 import { getGoogleOAuthTokens, getGoogleUser, findAndUpdateUser } from '../services/user.service';
 
-interface GoogleTokensResult {
-    access_token: string;
-    expires_in: number;
-    refresh_token: string;
-    scope: string;
-    id_token: string;
-}
-
 //create controller 
 const UserController = {
     //create user

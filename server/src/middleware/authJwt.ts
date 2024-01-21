@@ -1,9 +1,7 @@
 import jwt, { TokenExpiredError } from 'jsonwebtoken';
 import db from '../models';
-import { Error } from 'mongoose';
 import { NextFunction, Request, Response } from 'express';
 import { secret } from '../../config/Auth';
-import { ParamsDictionary } from 'express-serve-static-core';
 
 interface RequestWithUserId extends Request {
     userId?: string;

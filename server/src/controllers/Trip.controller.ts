@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import Trip from '../models/Trip.model';
 import User from '../models/User.model';
 import Item from '../models/Item.model';
-import { Types } from 'mongoose';
 
 //create controller
 const TripController = {
