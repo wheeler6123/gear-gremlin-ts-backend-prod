@@ -1,6 +1,6 @@
 import { Schema, model, Model, Document } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
-import { secret, jwtExpiration, jwtRefreshExpiration } from '../../config/Auth';
+import { jwtRefreshExpiration } from '../../config/Auth';
 
 
 
