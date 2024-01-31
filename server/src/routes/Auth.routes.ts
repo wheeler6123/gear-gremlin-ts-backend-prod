@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import UserController from "../controllers/Auth.controller";
-import { app } from "../index";
 
 export const authRoutes = (app: any) => {
 
