@@ -3,7 +3,7 @@ import UserController from "../controllers/Auth.controller";
 
 export const authRoutes = (app: any) => {
 
-    app.use((req: Request, res: Response, next: any) => {
+    app.use((_req: Request, res: Response, next: any) => {
         res.header(
             "Access-Control-Allow-Headers",
             "x-access-token, Origin, Content-Type, Accept"
