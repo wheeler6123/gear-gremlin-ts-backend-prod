@@ -74,6 +74,11 @@ const CategoryTagController = {
             const tagId = req.params.id;
 
             const items = await Item.find({ categories: tagId }).populate('categories');
+
+            if (!items) {
+                return res.status(400).json({ message: 'No items found' });
+            }
+            res.status(200).json(items);
         } catch (error) {
             console.error('Error getting all items by tag: ', error);
             res.status(500).json({ message: 'An error occurred while attempting your request' });
