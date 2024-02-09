@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "npm install && tsc -b",
+    "build": "npm install && tsc -b && ls dist",
     "start": "node src/index.js"
   },
   "author": "",
