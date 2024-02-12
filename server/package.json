@@ -8,6 +8,7 @@
     "build": "npm install && tsc",
     "start": "node dist/src/index.js"
   },
+  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
