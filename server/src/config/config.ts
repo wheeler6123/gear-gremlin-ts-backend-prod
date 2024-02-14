@@ -1,8 +1,11 @@
-import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
 import dotenv from 'dotenv';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 //parsing env file
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+dotenv.config({ path: resolve(__dirname, '.env') });
 
 //interface to load env variables
 

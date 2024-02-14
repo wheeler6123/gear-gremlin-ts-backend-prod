@@ -1,8 +1,8 @@
 import qs from 'qs';
-import { googleClientId, googleClientSecret, googleCallbackUrl } from '../../config/Auth';
+import { googleClientId, googleClientSecret, googleCallbackUrl } from '../config/Auth.js';
 import axios from 'axios';
 import { FilterQuery, UpdateQuery, QueryOptions } from 'mongoose';
-import User, { IUser } from '../models/User.model';
+import User, { IUser } from '../models/User.model.js';
 
 interface GoogleTokensResult {
     access_token: string;

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import User from '../models/User.model';
-import Item from '../models/Item.model';
-import UsageTag from '../models/UsageTag.model';
+import User from '../models/User.model.js';
+import Item from '../models/Item.model.js';
+import UsageTag from '../models/UsageTag.model.js';
 
 //create controller
 const UsageTagController = {

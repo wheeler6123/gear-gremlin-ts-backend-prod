@@ -1,10 +1,10 @@
 import mongoose, { Model, Document } from 'mongoose';
-import User, { IUser } from './User.model';
-import Item, { IItem } from './Item.model';
-import Trip, {ITrip } from './Trip.model';
-import CategoryTag, { ICategoryTag } from './CategoryTag.model';
-import UsageTag, { IUsageTag } from './UsageTag.model';
-import RefreshToken, { IRefreshToken } from './RefreshToken.model';
+import User, { IUser } from './User.model.js';
+import Item, { IItem } from './Item.model.js';
+import Trip, {ITrip } from './Trip.model.js';
+import CategoryTag, { ICategoryTag } from './CategoryTag.model.js';
+import UsageTag, { IUsageTag } from './UsageTag.model.js';
+import RefreshToken, { IRefreshToken } from './RefreshToken.model.js';
 
 mongoose.Promise = global.Promise;
 
