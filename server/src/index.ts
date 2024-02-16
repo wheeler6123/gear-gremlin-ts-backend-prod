@@ -10,6 +10,7 @@ import { categoryTagRoutes } from './routes/CategoryTag.routes.js';
 import { usageTagRoutes } from './routes/UsageTag.routes.js';
 
 export const app = express();
+app.set('trust proxy', 1);
 app.use(cors());
 app.use(express.json());
 
